@@ -79,7 +79,7 @@ def play_a_game():
         elif goagain.upper() == 'N':
             pickfp = input('Would you like help picking the first player?\n')
             if pickfp.upper() == 'Y':
-                pick_first_player()
+                pick_first_player(num_players)
             break
         else:
             print('''I'm not sure what that means, but I'll take it as a "Yes"''')

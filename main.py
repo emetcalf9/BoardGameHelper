@@ -38,7 +38,8 @@ while True:
         if confirm == 'Yes':
             reset_list()
     elif int(choice) == 6:
-        pick_first_player()
+        num_players = int(input("How many people are playing?"))
+        pick_first_player(num_players)
     elif int(choice) == 7:
         game = input("Which game did you play?\n")
         winner = input("Who won?\n")

@@ -20,18 +20,19 @@ def check_player_name(name):
         return False
 
 
-def pick_first_player():
+def pick_first_player(num_players):
     database = sqlite3.connect("BoardGameHelper")
     cur = database.cursor()
     player_list = []
-    while True:
-        player = input("Enter a players name (leave blank to end)\n")
-        if player == '':
-            break
+    count = 1
+    while count <= int(num_players):
+        player = input(f"Player {count}'s name: ")
         player_list.append(player)
+        count += 1
         # Check if player already exists in Players table and add if not exists
         if not check_player_name(player):
             cur.execute(f"INSERT INTO PLAYERS(Name) Values ('{player}')")
             database.commit()
     fplayernumber = random.randint(0, len(player_list)-1)
     print(f'{player_list[fplayernumber]} is the first player\n')
+    input("Press enter to continue\n")
